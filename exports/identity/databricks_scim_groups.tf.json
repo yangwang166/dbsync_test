@@ -5,6 +5,11 @@
                 "allow_cluster_create": false,
                 "allow_instance_pool_create": false,
                 "display_name": "eng1"
+            },
+            "eng2": {
+                "allow_cluster_create": false,
+                "allow_instance_pool_create": false,
+                "display_name": "eng2"
             }
         }
     },
