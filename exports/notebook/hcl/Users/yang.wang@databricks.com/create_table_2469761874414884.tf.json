@@ -1,0 +1,11 @@
+{
+    "resource": {
+        "databricks_notebook": {
+            "databricks_notebook_Users_yang_wang_databricks_com_create_table_2469761874414884": {
+                "language": "PYTHON",
+                "path": "/Users/yang.wang@databricks.com/create_table",
+                "source": "create_table_2469761874414884.py"
+            }
+        }
+    }
+}

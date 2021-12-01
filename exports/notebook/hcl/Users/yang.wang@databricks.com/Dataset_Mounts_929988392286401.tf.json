@@ -1,0 +1,11 @@
+{
+    "resource": {
+        "databricks_notebook": {
+            "databricks_notebook_Users_yang_wang_databricks_com_Dataset_Mounts_929988392286401": {
+                "language": "PYTHON",
+                "path": "/Users/yang.wang@databricks.com/Dataset-Mounts",
+                "source": "Dataset_Mounts_929988392286401.py"
+            }
+        }
+    }
+}

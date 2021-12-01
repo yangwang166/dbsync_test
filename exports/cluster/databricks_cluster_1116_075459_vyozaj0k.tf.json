@@ -1,0 +1,34 @@
+{
+    "resource": {
+        "databricks_cluster": {
+            "databricks_cluster_1116_075459_vyozaj0k": {
+                "autotermination_minutes": 120,
+                "cluster_name": "train",
+                "depends_on": [
+                    "databricks_dbfs_file.databricks_dbfs_files"
+                ],
+                "driver_node_type_id": "${var.Standard_DS3_v2}",
+                "dynamic": [
+                    {
+                        "azure_attributes": {
+                            "content": {
+                                "availability": "ON_DEMAND_AZURE",
+                                "first_on_demand": 1,
+                                "spot_bid_max_price": -1.0
+                            },
+                            "for_each": "${upper(var.CLOUD) == \"AZURE\" ? [1] : []}"
+                        }
+                    }
+                ],
+                "enable_elastic_disk": "${upper(var.CLOUD) == \"AZURE\" ? true : true}",
+                "enable_local_disk_encryption": false,
+                "node_type_id": "${var.Standard_DS3_v2}",
+                "num_workers": 2,
+                "spark_conf": {
+                    "spark.databricks.delta.preview.enabled": "true"
+                },
+                "spark_version": "10.1.x-cpu-ml-scala2.12"
+            }
+        }
+    }
+}

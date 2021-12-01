@@ -1,0 +1,42 @@
+{
+    "resource": {
+        "databricks_job": {
+            "databricks_job_32": {
+                "email_notifications": {
+                    "no_alert_for_skipped_runs": false
+                },
+                "max_concurrent_runs": 1,
+                "name": "testjob1",
+                "new_cluster": {
+                    "cluster_name": "",
+                    "dynamic": [
+                        {
+                            "azure_attributes": {
+                                "content": {
+                                    "availability": "ON_DEMAND_AZURE",
+                                    "first_on_demand": 1,
+                                    "spot_bid_max_price": -1.0
+                                },
+                                "for_each": "${upper(var.CLOUD) == \"AZURE\" ? [1] : []}"
+                            }
+                        }
+                    ],
+                    "enable_elastic_disk": "${upper(var.CLOUD) == \"AZURE\" ? true : true}",
+                    "node_type_id": "${var.Standard_DS3_v2}",
+                    "num_workers": 1,
+                    "spark_conf": {
+                        "spark.databricks.delta.preview.enabled": "true"
+                    },
+                    "spark_env_vars": {
+                        "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+                    },
+                    "spark_version": "8.3.x-scala2.12"
+                },
+                "notebook_task": {
+                    "notebook_path": "/Users/yang.wang@databricks.com/Dataset-Mounts"
+                },
+                "timeout_seconds": 0
+            }
+        }
+    }
+}

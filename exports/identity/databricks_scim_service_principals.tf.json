@@ -1,0 +1,17 @@
+{
+    "locals": {
+        "databricks_scim_sp_for_each_var": {}
+    },
+    "resource": {
+        "databricks_service_principal": {
+            "databricks_scim_service_principals": {
+                "active": "${each.value.active}",
+                "allow_cluster_create": "${each.value.allow_cluster_create}",
+                "allow_instance_pool_create": "${each.value.allow_instance_pool_create}",
+                "application_id": "${each.value.application_id}",
+                "display_name": "${each.value.display_name}",
+                "for_each": "${local.databricks_scim_sp_for_each_var}"
+            }
+        }
+    }
+}

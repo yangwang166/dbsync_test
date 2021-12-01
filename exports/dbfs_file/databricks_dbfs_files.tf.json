@@ -1,0 +1,23 @@
+{
+    "locals": {
+        "databricks_dbfs_file_for_each_var": {
+            "/databricks/init_scripts/init.sh": {
+                "path": "/databricks/init_scripts/init.sh",
+                "source": "${pathexpand(\"databricks_dbfs_file_databricks_init_scripts_init_sh\")}"
+            },
+            "/tests/test.sh": {
+                "path": "/tests/test.sh",
+                "source": "${pathexpand(\"databricks_dbfs_file_tests_test_sh\")}"
+            }
+        }
+    },
+    "resource": {
+        "databricks_dbfs_file": {
+            "databricks_dbfs_files": {
+                "for_each": "${local.databricks_dbfs_file_for_each_var}",
+                "path": "${each.value.path}",
+                "source": "${each.value.source}"
+            }
+        }
+    }
+}

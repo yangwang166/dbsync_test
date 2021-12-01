@@ -1,0 +1,28 @@
+{
+    "resource": {
+        "databricks_permissions": {
+            "databricks_job_32_permissions": {
+                "count": "${var.ME_USERNAME != \"yang.wang@databricks.com\" ? 1 : 0}",
+                "depends_on": [
+                    "databricks_user.databricks_scim_users",
+                    "databricks_group.databricks_scim_groups",
+                    "databricks_service_principal.databricks_scim_service_principals"
+                ],
+                "dynamic": [
+                    {
+                        "access_control": {
+                            "content": {
+                                "group_name": null,
+                                "permission_level": "IS_OWNER",
+                                "service_principal_name": null,
+                                "user_name": "yang.wang@databricks.com"
+                            },
+                            "for_each": "${var.ME_USERNAME != \"yang.wang@databricks.com\" ? [1] : []}"
+                        }
+                    }
+                ],
+                "job_id": "${databricks_job.databricks_job_32.id}"
+            }
+        }
+    }
+}

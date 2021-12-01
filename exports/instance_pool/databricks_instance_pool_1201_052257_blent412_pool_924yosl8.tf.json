@@ -1,0 +1,24 @@
+{
+    "resource": {
+        "databricks_instance_pool": {
+            "databricks_instance_pool_1201_052257_blent412_pool_924yosl8": {
+                "dynamic": [
+                    {
+                        "azure_attributes": {
+                            "content": {
+                                "availability": "ON_DEMAND_AZURE"
+                            },
+                            "for_each": "${upper(var.CLOUD) == \"AZURE\" ? [1] : []}"
+                        }
+                    }
+                ],
+                "enable_elastic_disk": true,
+                "idle_instance_autotermination_minutes": 60,
+                "instance_pool_name": "testpool",
+                "max_capacity": 2,
+                "min_idle_instances": 0,
+                "node_type_id": "${var.Standard_DS3_v2}"
+            }
+        }
+    }
+}
